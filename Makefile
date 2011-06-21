@@ -3,6 +3,7 @@ OBJCOPY = avr-objcopy
 OBJDUMP = avr-objdump
 AVRDUDE = avrdude
 STTY = stty
+ARDUINO_HEADERS = .
 
 NAME = riis
 
@@ -21,7 +22,7 @@ BAUD_RATE = 115200
 PROGRAMMER = arduino
 CFLAGS = -O2 -g -mmcu=$(MCU) -DF_CPU=$(F_CPU) \
          -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums \
-         -Wall -Wextra -pedantic -I..
+         -Wall -Wextra -pedantic -I$(ARDUINO_HEADERS)
 
 .PHONY: all list stty
 .PRECIOUS: %.o %.elf
